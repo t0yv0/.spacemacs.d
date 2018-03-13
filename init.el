@@ -311,6 +311,19 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
 
+(defun dotspacemacs/open-shell-for-current-buffer ()
+  "Ensure two-pane layout where current buffer is paired with a matching shell.
+
+This is an experimental function to see if this simplifies shell
+management."
+  (interactive)
+  (let ((new-shell-buf nil))
+    (save-window-excursion
+      (setq new-shell-buf
+            (shell (concat "*shell-for-" (buffer-name) "*"))))
+    (delete-other-windows)
+    (set-window-buffer (split-window-right) new-shell-buf)))
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -326,6 +339,7 @@ you should place your code here."
   (prefer-coding-system 'utf-8)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+  (global-set-key (kbd "C-c 2") 'dotspacemacs/open-shell-for-current-buffer)
   (global-set-key (kbd "C-c c") 'compile)
   (global-set-key (kbd "C-c h") 'shell)
   (global-set-key (kbd "C-c l") "λ")
