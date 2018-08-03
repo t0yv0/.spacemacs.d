@@ -349,6 +349,7 @@ you should place your code here."
   (global-set-key (kbd "C-c m") 'kmacro-start-macro-or-insert-counter)
   (global-set-key (kbd "C-c n") 'kmacro-end-or-call-macro)
   (global-set-key (kbd "C-c r") 'recompile)
+  (global-set-key (kbd "C-c x") 'delete-frame)
 
   (global-set-key (kbd "M-n") 'forward-paragraph)
   (global-set-key (kbd "M-p") 'backward-paragraph)
