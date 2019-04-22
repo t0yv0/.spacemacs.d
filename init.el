@@ -349,6 +349,12 @@ you should place your code here."
   (global-set-key (kbd "M-p") 'backward-paragraph)
   (global-set-key (kbd "RET") 'newline-and-indent)
 
+  (add-to-list 'load-path "~/.spacemacs.d")
+
+  (use-package so-long
+    :config
+    (so-long-enable))
+
   (use-package helm-ag
     :bind (("C-c b" . helm-ag-buffers)
            ("C-c d" . helm-ag)
@@ -371,6 +377,7 @@ you should place your code here."
 
   ;; Do not write anything past this comment. This is where Emacs will
   ;; auto-generate custom variable definitions.
+
   (custom-set-variables
    ;; custom-set-variables was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
